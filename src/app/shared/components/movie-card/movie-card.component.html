@@ -1,52 +1,61 @@
 <div class="container mt-5">
   <div class="row">
 
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
 
-      <div class="movie-card">
+      <!-- Movie Card -->
+      <div
+        class="card border-0 shadow-lg overflow-hidden position-relative movie-card"
+      
+      >
 
-        <!-- Movie Poster -->
-        <div class="poster">
-          <img 
-            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-            alt="movie image"
-          />
-        </div>
+        <!-- Poster -->
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          class="card-img-top movie-img"
+          alt="movie image"
+        />
 
-        <!-- Movie Details -->
-        <div class="movie-info">
-
-          <!-- Title -->
-          <h5>
-            {{ movie.title ? movie.title : movie.original_title }}
-          </h5>
-
-          <!-- Release Date -->
-          <p class="date">
-            📅 {{ movie.release_date }}
-          </p>
-
-          <!-- Rating -->
-          <p class="rating">
-            ⭐ {{ movie.vote_average }}
-          </p>
+        <!-- Overlay Content -->
+        <div style="position: relative;top: 36%;"
+          class="position-absolute bottom-0 start-0 w-100 p-3 text-white overlay-bg"
+        >
 
           <!-- Overview -->
-          <p class="overview">
-            {{ movie.overview | slice:0:100 }}...
-          </p>
-
-          <!-- Adult Badge -->
-          <span 
-            class="badge"
-            [class.adult]="movie.adult"
-            [class.family]="!movie.adult"
+          <div 
+            class="movie-overview bg-light text-dark rounded p-3 mb-3"
+          
           >
-            {{ movie.adult ? '18+' : 'Family' }}
-          </span>
+            {{ movie.overview }}
+          </div>
+
+          <!-- Bottom Row -->
+          <div class="d-flex justify-content-between align-items-center" style="background-color: rgb(5, 44, 84);padding: 15px;">
+
+            <!-- Title -->
+            <h5 class="m-0 fw-bold text-truncate w-75">
+              {{ movie.title || movie.original_title }}
+            </h5>
+
+            <!-- Rating -->
+            <span
+              class="badge fs-6 px-3 py-2"
+              [ngClass]="{
+                'bg-success': movie.vote_average >= 7,
+                'bg-warning text-dark': movie.vote_average >= 5 && movie.vote_average < 7,
+                'bg-danger': movie.vote_average < 5
+              }"
+            >
+              {{ movie.vote_average }}
+            </span>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
+
+  </div>
 </div>
-  

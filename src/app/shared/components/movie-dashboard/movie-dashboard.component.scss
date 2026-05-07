@@ -1,0 +1,22 @@
+.tmdb-heading{
+  width: fit-content;
+  margin: 20px auto;
+  padding: 14px 30px;
+
+  background: linear-gradient(135deg, #007bff, #001f5c);
+  color: #fff;
+
+  border-radius: 50px;
+
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+
+  transition: 0.3s ease;
+}
+
+.tmdb-heading:hover{
+  transform: scale(1.05);
+}

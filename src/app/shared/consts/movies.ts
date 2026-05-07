@@ -1,7 +1,8 @@
 import { Imovies } from "../models/Imovie";
 
 
-export let movieArray:Array<Imovies>=[
+export let movieArray:Array<Imovies>=
+[
   {
     adult: false,
     backdrop_path: '/gslT8t964rYXyqRcqrxFh77ikyb.jpg',

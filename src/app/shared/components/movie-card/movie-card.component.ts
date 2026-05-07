@@ -7,19 +7,24 @@ import { Imovies } from '../../models/Imovie';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent implements OnInit {
-
-
   constructor() { }
 
   ngOnInit(): void {
   }
+    @Input()
+  movie!: Imovies;
 
-   @Input() movie!: Imovies;   // receive data
 
-  @Output() emitMovie = new EventEmitter<Imovies>(); // send data
+  @Output()
+  emitMovie: EventEmitter<Imovies> =
+  new EventEmitter<Imovies>();
 
-  onSelectMovie() {
+
+
+  onMovieClick(){
+
     this.emitMovie.emit(this.movie);
+
   }
 
 }

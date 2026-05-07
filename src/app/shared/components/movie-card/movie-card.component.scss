@@ -1,113 +1,207 @@
-.movie-card {
-  position: relative;
-  width: 100%;              /* full width of column */
-  max-width: 400px;        /* increase size */
-  margin: auto;
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.4s ease;
+.title-rating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Poster Bigger */
+.rating{
+    margin: 0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.movie-card {
+  width: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 .poster img {
   width: 100%;
-  height: 500px;           /* increase height */
+  height: 450px;
   object-fit: cover;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+/* Title + Rating */
+.title-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-rating h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rating {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.date {
+  margin-top: 10px;
+  color: gray;
+}
+
+.movie-overview {
+  margin-top: 50px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 60px;
+  cursor: pointer;
+// overflow: hidden;
+// text-overflow: ellipsis;
+// text-wrap:  nowrap;
 }
 
 /* Hover Effect */
-.movie-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-/* Info Overlay */
-.movie-info {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
+.movie-overview:hover {
+  background-color: #222;
   color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+
+  transform: scale(1);
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-
-/* Title Bigger */
-.movie-info h5 {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.movie-card {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  background: #000;
-
-  transform: scale(0.95);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* Hover Scale */
-.movie-card:hover {
-  transform: scale(1.08);
-  z-index: 10;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-/* Poster */
-.poster img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-
-/* Info Section (top part stays dark) */
-.movie-info {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-}
-
-/* Overview with WHITE background */
-.overview {
-  background: #fff;
-  color: #000;
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 10px;
-
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-
-  transition: all 0.4s ease;
-}
-
-/* Show on hover */
-.movie-card:hover .overview {
-  opacity: 1;
-  max-height: 120px;
-}
-
-/* Badge */
 .badge {
-  margin-top: 8px;
-  padding: 4px 10px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
   border-radius: 20px;
+  color: #fff;
   font-size: 12px;
 }
 
-.badge.adult {
+.adult {
   background: red;
-  color: #fff;
 }
 
-.badge.family {
+.family {
   background: green;
-  color: #fff;
+}
+
+/* Movie Card */
+.movie-card {
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Movie Image */
+.movie-img {
+  height: 450px;
+  object-fit: cover;
+}
+
+/* Overlay */
+.overlay-bg {
+  
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+/* Overview Hidden Initially */
+.movie-overview {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+
+  max-height: 120px;
+  overflow-y: auto;
+
+  font-size: 14px;
+}
+
+/* Show Overview On Card Hover */
+.movie-card:hover .movie-overview {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================
+   MOVIE CARD
+========================= */
+.movie-card {
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Card Hover Zoom */
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   MOVIE IMAGE
+========================= */
+.movie-img {
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Image Zoom */
+.movie-card:hover .movie-img {
+  transform: scale(1.08);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+.overlay-bg {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+/* =========================
+   MOVIE OVERVIEW
+========================= */
+.movie-overview {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+
+  transition: all 0.5s ease;
+
+  max-height: 130px;
+  overflow-y: auto;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Show Overview On Hover */
+.movie-card:hover .movie-overview {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
